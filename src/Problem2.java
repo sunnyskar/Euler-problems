@@ -1,19 +1,22 @@
 
 public class Problem2 {
-
 	public static void main(String[] args) {
-	  int sum = 0;
-	  int num = 1;
-	  int oldnum = 1;
-		 for(num = 1;num < 4000000;num += oldnum) {
-			 oldnum += num;
-			 if (num % 2== 0){
-			 sum += num; 
+		int x = 1;
+		int y = 1;
+		int outside_num=0;
+		int sum = 0;
+		int[] start = {x,y};
+		for (; start[1]<4000000;)	
+		{
+				outside_num = start[1];
+				if (start[1]%2 == 0) sum += start[1];
+			System.out.println("right now " + sum);
+				start[1]+= start[0];
+				start[0]= outside_num;
 			
-			 }
-			 System.out.println(num+"...");
-		 }
-	System.out.println(sum);
+		}
+		System.out.println(sum);
+		
 	}
 
 }
